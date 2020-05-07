@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const baseConferenceUrl = 'https://www.churchofjesuschrist.org/general-conference?lang=eng';
 
 function parseTalkSources(talkData) {
-  return [];
+  return talkData;
 }
 
 async function getTalkData(talkUrl) {
@@ -12,7 +12,7 @@ async function getTalkData(talkUrl) {
   const talkDataUrl = `${talkDataUrlBase}${talkDataPath}`;
   fetch(talkDataUrl)
     .then(response => {
-      return response.json();
+      return parseTalkSources(response.json());
     });
 }
 
@@ -22,6 +22,7 @@ async function getAllConferenceTalkSources(baseConferenceUrl) {
   await page.goto(baseConferenceUrl);
 
   const talkUrls = await page.evaluate(() => {
+    // Look for talk URLs within the page
     return [];
   });
 
