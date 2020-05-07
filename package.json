@@ -1,7 +1,7 @@
 {
-  "name": "animal-crossing-scraper",
+  "name": "general-conference-sources",
   "version": "1.0.0",
-  "description": "Scrape animal crossing data using puppeteer",
+  "description": "Scrape general conference data using puppeteer to get all the sources for each talk",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
